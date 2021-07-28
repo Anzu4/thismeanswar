@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { hot } from 'react-hot-loader';
 import './App.css';
-import { Deck } from './cards';
-import Splash from './components/Splash';
+import { Container, Button } from 'react-bootstrap';
+import War from './components/War';
 
-class App extends Component {
-  render() {
-    let game = false;
-    if (game) {
-      return <h2>This will be the game board</h2>;
-    } else {
-      return <Splash />;
-    }
+function App() {
+  const [game, setGame] = useState('off');
+
+  if (game === 'off') {
+    return (
+      <Container>
+        <h1>This Means WAR!</h1>
+        <Button onClick={() => setGame('on')}>Play WAR</Button>
+      </Container>
+    );
+  } else {
+    return <War />;
   }
 }
 
