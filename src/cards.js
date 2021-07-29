@@ -14,7 +14,8 @@ const deck = [];
 
 for (let i = 0; i < suits.length; i++) {
   for (let j = 0; j < ranks.length; j++) {
-    let card = [suits[i], ranks[j]];
+    //let card = [suits[i], ranks[j]];
+    let card = { Suit: suits[i], Rank: ranks[j] };
     deck.push(card);
   }
 }
