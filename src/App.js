@@ -2,7 +2,6 @@ import React, { Component, useState } from 'react';
 import { hot } from 'react-hot-loader';
 import './App.css';
 import { Container, Button } from 'react-bootstrap';
-import deck from './cards';
 import War from './components/War';
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
       </Container>
     );
   } else {
-    return <War deck={deck} />;
+    return <War />;
   }
 }
 
