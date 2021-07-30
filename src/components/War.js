@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import deck from '../cards';
-import { Container, Button } from 'react-bootstrap';
+import '../App.css';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Header, Footer, Card, Float } from './index';
 
 export default function War() {
   // Define States
@@ -105,77 +107,6 @@ export default function War() {
       setStart('warUp');
       float();
     }
-    // Cards have been played inside of a 'war' senario
-    //   case 'warUp':
-    //     console.log(currComputerCard, currPlayerCard);
-    //     // Player Wins
-    //     if (currPlayerCard.Rank > currComputerCard.Rank) {
-    //       let tempPlayDeck = [...playerDeck];
-    //       // put current card at back
-    //       tempPlayDeck.push(tempPlayDeck.shift());
-    //       // add player float
-    //       playFloat.forEach((card) => {
-    //         tempPlayDeck.push(card);
-    //       });
-    //       // add computer's card
-    //       tempPlayDeck.push(computerCard);
-    //       // add computer's float
-    //       playFloat.forEach((card) => tempPlayDeck.push(card));
-    //       console.log(tempPlayDeck);
-    //       setPlayerDeck(tempPlayDeck);
-
-    //       let tempCompDeck = [...computerDeck];
-    //       // remove current card and float
-    //       tempCompDeck.splice(0, compFloat.length + 1);
-    //       console.log(tempCompDeck);
-    //       setComputerDeck(tempCompDeck);
-
-    //       // Remove current card from top of Deck
-    //       //setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
-    //       //setComputerDeck(computerDeck.filter((card) => card !== computerCard));
-    //       // add the current cards and each float to the bottom of the player's deck
-    //       // Add Player's current card
-    //       //setPlayerDeck((playerDeck) => [...playerDeck, playerCard]);
-    //       // Add cards from Player's Float
-    //       //playFloat.forEach((card) => {
-    //       // setPlayerDeck((playerDeck) => [...playerDeck, card]);
-    //       // });
-    //       // Add Computer's current card
-    //       // setPlayerDeck((playerDeck) => [...playerDeck, computerCard]);
-    //       // Add Computer's Float
-    //       // compFloat.forEach((card) => {
-    //       //   setComputerDeck((computerDeck) => [...computerDeck, card]);
-    //       // });
-    //       // empty floats
-    //       playFloat = [];
-    //       compFloat = [];
-    //       setPlayerFloat([]);
-    //       setComputerFloat([]);
-    //       setStart('on');
-    //     }
-    //     // Computer Wins
-    //     else if (currComputerCard.Rank > currPlayerCard.Rank) {
-    //       // Remove current card from top of Deck
-    //       setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
-    //       setComputerDeck(computerDeck.filter((card) => card !== computerCard));
-    //       // add the current cards and each float to the bottom of the computer's deck
-    //       setComputerDeck((computerDeck) => [...computerDeck, computerCard]);
-    //       compDeck.forEach((card) => {
-    //         setComputerDeck((computerDeck) => [...computerDeck, card]);
-    //       });
-    //       setComputerDeck((computerDeck) => [...computerDeck, computerCard]);
-    //       playDeck.forEach((card) => {
-    //         setComputerDeck((computerDeck) => [...computerDeck, card]);
-    //       });
-    //       // empty floats
-    //       setPlayerFloat([]);
-    //       setComputerFloat([]);
-    //       setStart('on');
-    //     } else if (currComputerCard.Rank === currPlayerCard.Rank) {
-    //       float();
-    //       setStart('warUp');
-    //       break;
-    //     }
   }
 
   // determines the winner of the float battle
@@ -231,89 +162,168 @@ export default function War() {
   // The actual page render. Buttons will change based on what case the game is in and update states accordingly
   if (start === 'off') {
     return (
-      <Container>
-        <h1>This Means WAR!</h1>
-        <Button varient='primary' onClick={() => shuffle(deck)}>
-          Deal!
-        </Button>
+      <Container id={'battleground'}>
+        <Header />
+        <Row className={'Opponant'}>
+          <Col className={'Opp-float'}>
+            <p>Float</p>
+          </Col>
+          <Col className={'Opp-card'}>
+            <p>Card</p>
+          </Col>
+          <Col className={'Opp-deck'}>
+            <p>Deck</p>
+          </Col>
+        </Row>
+        <Row className={'Action'}>
+          <Button variant='primary' onClick={() => shuffle(deck)}>
+            Deal!
+          </Button>
+        </Row>
+        <Row className={'Player'}>
+          <Col className={'Play-float'}>
+            <p>Float</p>
+          </Col>
+          <Col className={'Play-card'}>
+            <p>Card</p>
+          </Col>
+          <Col className={'Play-deck'}>
+            <p>Deck</p>
+          </Col>
+        </Row>
+        <Footer />
       </Container>
     );
   } else if (start === 'on') {
-    return (
-      <Container>
-        <h1>This Means WAR!</h1>
-        <div>{start}</div>
-        <div>Player Card:</div>
-        <div>Computer Card:</div>
-        <Button onClick={() => setCards(playerDeck, computerDeck)}>
-          Play Card
-        </Button>
-        <div>
-          <div>Player Deck: {playerDeck.length}</div>
-          <div>Computer Deck: {computerDeck.length}</div>
-        </div>
-      </Container>
-    );
+    if (playerDeck.length > 0 && computerDeck.length > 0) {
+      //let compCard = computerCard;
+      //console.log(computerCard);
+      return (
+        <Container id={'battleground'}>
+          <Header />
+          <Row className={'Opponant'}>
+            <Col className={'float-box'}>
+              <Float />
+            </Col>
+            <Col className={'single-card'}>
+              <Card />
+            </Col>
+            <Col className={'Opp-deck'}>
+              <p>{computerDeck.length}</p>
+            </Col>
+          </Row>
+          <Button onClick={() => setCards(playerDeck, computerDeck)}>
+            Play Card
+          </Button>
+          <Row className={'Player'}>
+            <Col className={'float-box'}>
+              <Float />
+            </Col>
+            <Col className={'single-card'}>
+              <Card />
+            </Col>
+            <Col className={'Play-deck'}>
+              <p>{playerDeck.length}</p>
+            </Col>
+          </Row>
+          <Footer />
+        </Container>
+      );
+    } else if (playerDeck.length === 0) {
+      console.log('You lose!');
+    } else if (computerDeck.length === 0) {
+      console.log('You WIN!');
+    }
   } else if (start === 'collect') {
-    let playCard = playerCard.Rank;
-    let compCard = computerCard.Rank;
+    if (playerDeck.length > 0 && computerDeck.length > 0) {
+      // let playCard = playerCard.Rank;
+      // let compCard = computerCard.Rank;
 
-    return (
-      <Container>
-        <h1>This Means WAR!</h1>
-        <div>
-          <div>
-            <div>{start}</div>
-            <div>Player Card: {playCard}</div>
-            <div>Computer Card: {compCard}</div>
-          </div>
+      return (
+        <Container id={'battleground'}>
+          <Header />
+          <Row className={'Opponant'}>
+            <Col className={'float-box'}>
+              <Float />
+            </Col>
+            <Col className={'Opp-card'}>
+              <Card card={computerCard} />
+            </Col>
+            <Col className={'Opp-deck'}>
+              <p>{computerDeck.length}</p>
+            </Col>
+          </Row>
           <Button onClick={() => determineWin(playerCard, computerCard)}>
             Collect
           </Button>
-          <div>Player Deck: {playerDeck.length}</div>
-          <div>Computer Deck: {computerDeck.length}</div>
-        </div>
-      </Container>
-    );
+          <Row className={'Player'}>
+            <Col className={'float-box'}>
+              <Float />
+            </Col>
+            <Col className={'single-card'}>
+              <Card card={playerCard} />
+            </Col>
+            <Col className={'Play-deck'}>
+              <p>{playerDeck.length}</p>
+            </Col>
+          </Row>
+          <Footer />
+        </Container>
+      );
+    } else if (playerDeck.length === 0) {
+      console.log('You lose!');
+    } else if (computerDeck.length === 0) {
+      console.log('You WIN!');
+    }
   } else if (start === 'warUp') {
-    let playCard = playerCard.Rank;
-    let compCard = computerCard.Rank;
-    let playFloat = [
-      playerFloat[0].Rank,
-      playerFloat[1].Rank,
-      playerFloat[2].Rank,
-    ];
-    let compFloat = [
-      computerFloat[0].Rank,
-      computerFloat[1].Rank,
-      computerFloat[2].Rank,
-    ];
-    return (
-      <Container>
-        <h1>This Means WAR!</h1>
-        <div>
-          <div>{start}</div>
-          <div>Player Card: {playCard}</div>
-          <div>Computer Card: {compCard}</div>
-        </div>
-        <Button onClick={() => battle(playerFloat, computerFloat)}>
-          Collect
-        </Button>
-        <div>Player Deck: {playerDeck.length}</div>
-        <div>Computer Deck: {computerDeck.length}</div>
-        <div>
-          Player Float:
-          <div>{playFloat[0]}</div>
-          <div>{playFloat[1]}</div>
-          <div>{playFloat[2]}</div>
-        </div>
-        <div>
-          Computer Float:
-          <div>{compFloat[0]}</div>
-          <div>{compFloat[1]}</div>
-          <div>{compFloat[2]}</div>
-        </div>
-      </Container>
-    );
+    if (playerDeck.length > 0 && computerDeck.length > 0) {
+      // let playCard = playerCard.Rank;
+      // let compCard = computerCard.Rank;
+      // let playFloat = [
+      //   playerFloat[0].Rank,
+      //   playerFloat[1].Rank,
+      //   playerFloat[2].Rank,
+      // ];
+      // let compFloat = [
+      //   computerFloat[0].Rank,
+      //   computerFloat[1].Rank,
+      //   computerFloat[2].Rank,
+      // ];
+      return (
+        <Container id={'battleground'}>
+          <Header />
+          <Row className={'Opponant'}>
+            <Col className={'float-box'}>
+              <Float float={computerFloat} />
+            </Col>
+            <Col className={'single-card'}>
+              <Card card={computerCard} />
+            </Col>
+            <Col className={'Opp-deck'}>
+              <p>{computerDeck.length}</p>
+            </Col>
+          </Row>
+          <Button onClick={() => battle(playerFloat, computerFloat)}>
+            Collect
+          </Button>
+          <Row className={'Player'}>
+            <Col className={'float-box'}>
+              <Float float={playerFloat} />
+            </Col>
+            <Col className={'single-card'}>
+              <Card card={playerCard} />
+            </Col>
+            <Col className={'Play-deck'}>
+              <p>{playerDeck.length}</p>
+            </Col>
+          </Row>
+          <Footer />
+        </Container>
+      );
+    } else if (playerDeck.length === 0) {
+      console.log('You lose!');
+    } else if (computerDeck.length === 0) {
+      console.log('You WIN!');
+    }
   }
 }

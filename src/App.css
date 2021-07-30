@@ -1,8 +1,152 @@
 .App {
   text-align: center;
+  background-color: cadetblue;
+  min-height: 90%;
 }
 
-.App-logo {
+.splash_text_box {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: coral;
+  border-radius: 7px;
+  padding: 4px;
+}
+
+.team_text_box {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: coral;
+  border-radius: 7px;
+  padding: 4px;
+}
+
+#site_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
+  margin-top: 0;
+}
+
+#footer {
+  background-color: crimson;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#battleground {
+  text-align: center;
+  background-color: cadetblue;
+  min-height: 100vh;
+}
+
+.Opponant {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: darkmagenta;
+  min-height: 40vh;
+}
+
+.Opp-float {
+  display: flex;
+  flex-direction: column;
+  background-color: darksalmon;
+  margin: 1rem;
+  min-width: 40%;
+  align-items: center;
+  justify-content: center;
+}
+.Opp-card {
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+  margin: 1rem;
+  min-width: 20%;
+  align-items: center;
+  justify-content: center;
+}
+.Opp-deck {
+  display: flex;
+  flex-direction: column;
+  background-color: lightcoral;
+  margin: 1rem;
+  min-width: 20%;
+  align-items: center;
+  justify-content: center;
+}
+
+.Player {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: darkmagenta;
+  min-height: 40vh;
+}
+
+.Play-float {
+  display: flex;
+  flex-direction: column;
+  background-color: darksalmon;
+  margin: 1rem;
+  min-width: 40%;
+  align-items: center;
+  justify-content: center;
+}
+.Play-card {
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+  margin: 1rem;
+  min-width: 20%;
+  align-items: center;
+  justify-content: center;
+}
+.Play-deck {
+  display: flex;
+  flex-direction: column;
+  background-color: lightcoral;
+  margin: 1rem;
+  min-width: 20%;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  background-color: cornflowerblue;
+  height: 3rem;
+  border-radius: 7px;
+}
+
+.float-box {
+  display: flex;
+  flex-direction: column;
+  background-color: darksalmon;
+  margin: 1rem;
+  min-width: 40%;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-card {
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+  margin: 1rem;
+  min-width: 20%;
+  align-items: center;
+  justify-content: center;
+  min-height: 12vh;
+  max-height: 12vh;
+  padding: 0;
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -11,17 +155,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -36,3 +169,4 @@
     transform: rotate(360deg);
   }
 }
+*/

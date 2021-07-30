@@ -1,5 +1,5 @@
 import React from 'react';
 
-function Header() {
-  <h1 id={site - header}>This Means WAR!</h1>;
+export default function Header() {
+  return <h1 id={'site_header'}>This Means WAR!</h1>;
 }
