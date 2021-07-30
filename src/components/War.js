@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import deck from '../cards';
 import '../App.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Header, Footer, Card, Float } from './index';
+import { Header, Footer, Card, Float, Deck } from './index';
 
 export default function War() {
   // Define States
@@ -164,15 +164,15 @@ export default function War() {
     return (
       <Container id={'battleground'}>
         <Header />
-        <Row className={'Opponant'}>
-          <Col className={'Opp-float'}>
-            <p>Float</p>
+        <Row className={'Opponent'}>
+          <Col className={'float-box'}>
+            <Float />
           </Col>
-          <Col className={'Opp-card'}>
-            <p>Card</p>
+          <Col className={'card-box'}>
+            <Card />
           </Col>
-          <Col className={'Opp-deck'}>
-            <p>Deck</p>
+          <Col className={'deck-box'}>
+            <Deck />
           </Col>
         </Row>
         <Row className={'Action'}>
@@ -181,14 +181,14 @@ export default function War() {
           </Button>
         </Row>
         <Row className={'Player'}>
-          <Col className={'Play-float'}>
-            <p>Float</p>
+          <Col className={'float-box'}>
+            <Float />
           </Col>
-          <Col className={'Play-card'}>
-            <p>Card</p>
+          <Col className={'card-box'}>
+            <Card />
           </Col>
-          <Col className={'Play-deck'}>
-            <p>Deck</p>
+          <Col className={'deck-box'}>
+            <Deck />
           </Col>
         </Row>
         <Footer />
@@ -201,15 +201,15 @@ export default function War() {
       return (
         <Container id={'battleground'}>
           <Header />
-          <Row className={'Opponant'}>
+          <Row className={'Opponent'}>
             <Col className={'float-box'}>
               <Float />
             </Col>
-            <Col className={'single-card'}>
+            <Col className={'card-box'}>
               <Card />
             </Col>
-            <Col className={'Opp-deck'}>
-              <p>{computerDeck.length}</p>
+            <Col className={'deck-box'}>
+              <Deck deck={computerDeck} />
             </Col>
           </Row>
           <Button onClick={() => setCards(playerDeck, computerDeck)}>
@@ -219,11 +219,11 @@ export default function War() {
             <Col className={'float-box'}>
               <Float />
             </Col>
-            <Col className={'single-card'}>
+            <Col className={'card-box'}>
               <Card />
             </Col>
-            <Col className={'Play-deck'}>
-              <p>{playerDeck.length}</p>
+            <Col className={'deck-box'}>
+              <Deck deck={playerDeck} />
             </Col>
           </Row>
           <Footer />
@@ -242,15 +242,15 @@ export default function War() {
       return (
         <Container id={'battleground'}>
           <Header />
-          <Row className={'Opponant'}>
+          <Row className={'Opponent'}>
             <Col className={'float-box'}>
               <Float />
             </Col>
-            <Col className={'Opp-card'}>
+            <Col className={'card-box'}>
               <Card card={computerCard} />
             </Col>
-            <Col className={'Opp-deck'}>
-              <p>{computerDeck.length}</p>
+            <Col className={'deck-box'}>
+              <Deck deck={computerDeck} />
             </Col>
           </Row>
           <Button onClick={() => determineWin(playerCard, computerCard)}>
@@ -260,11 +260,11 @@ export default function War() {
             <Col className={'float-box'}>
               <Float />
             </Col>
-            <Col className={'single-card'}>
+            <Col className={'card-box'}>
               <Card card={playerCard} />
             </Col>
-            <Col className={'Play-deck'}>
-              <p>{playerDeck.length}</p>
+            <Col className={'deck-box'}>
+              <Deck deck={playerDeck} />
             </Col>
           </Row>
           <Footer />
@@ -277,30 +277,18 @@ export default function War() {
     }
   } else if (start === 'warUp') {
     if (playerDeck.length > 0 && computerDeck.length > 0) {
-      // let playCard = playerCard.Rank;
-      // let compCard = computerCard.Rank;
-      // let playFloat = [
-      //   playerFloat[0].Rank,
-      //   playerFloat[1].Rank,
-      //   playerFloat[2].Rank,
-      // ];
-      // let compFloat = [
-      //   computerFloat[0].Rank,
-      //   computerFloat[1].Rank,
-      //   computerFloat[2].Rank,
-      // ];
       return (
         <Container id={'battleground'}>
           <Header />
-          <Row className={'Opponant'}>
+          <Row className={'Opponent'}>
             <Col className={'float-box'}>
               <Float float={computerFloat} />
             </Col>
-            <Col className={'single-card'}>
+            <Col className={'card-box'}>
               <Card card={computerCard} />
             </Col>
-            <Col className={'Opp-deck'}>
-              <p>{computerDeck.length}</p>
+            <Col className={'deck-box'}>
+              <Deck deck={computerDeck} />
             </Col>
           </Row>
           <Button onClick={() => battle(playerFloat, computerFloat)}>
@@ -310,11 +298,11 @@ export default function War() {
             <Col className={'float-box'}>
               <Float float={playerFloat} />
             </Col>
-            <Col className={'single-card'}>
+            <Col className={'card-box'}>
               <Card card={playerCard} />
             </Col>
-            <Col className={'Play-deck'}>
-              <p>{playerDeck.length}</p>
+            <Col className={'deck-box'}>
+              <Deck deck={playerDeck} />
             </Col>
           </Row>
           <Footer />

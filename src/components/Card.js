@@ -11,7 +11,7 @@ export default function Card({ card }) {
     );
   } else {
     return (
-      <div className={'single-card'}>
+      <div>
         <p className={'card-suit'}></p>
         <p className={'card-value'}></p>
       </div>

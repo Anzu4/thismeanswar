@@ -1,7 +1,9 @@
 .App {
   text-align: center;
-  background-color: cadetblue;
-  min-height: 90%;
+  height: 100vh;
+  background-image: url('./images/tiny-war.jpg');
+  background-size: cover;
+  bottom: 0;
 }
 
 .splash_text_box {
@@ -30,54 +32,28 @@
 }
 
 #footer {
-  background-color: crimson;
+  margin-bottom: 0;
+  background-color: aqua;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0;
+  min-height: 10vh;
 }
 
 #battleground {
   text-align: center;
-  background-color: cadetblue;
   min-height: 100vh;
 }
 
-.Opponant {
+.Opponent {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: darkmagenta;
+  border: 3px solid pink;
   min-height: 40vh;
-}
-
-.Opp-float {
-  display: flex;
-  flex-direction: column;
-  background-color: darksalmon;
-  margin: 1rem;
-  min-width: 40%;
-  align-items: center;
-  justify-content: center;
-}
-.Opp-card {
-  display: flex;
-  flex-direction: column;
-  background-color: pink;
-  margin: 1rem;
-  min-width: 20%;
-  align-items: center;
-  justify-content: center;
-}
-.Opp-deck {
-  display: flex;
-  flex-direction: column;
-  background-color: lightcoral;
-  margin: 1rem;
-  min-width: 20%;
-  align-items: center;
-  justify-content: center;
 }
 
 .Player {
@@ -85,65 +61,106 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: darkmagenta;
+  border: 3px solid lightskyblue;
   min-height: 40vh;
 }
 
-.Play-float {
+.float-box {
   display: flex;
-  flex-direction: column;
-  background-color: darksalmon;
+  flex-direction: row;
   margin: 1rem;
   min-width: 40%;
   align-items: center;
   justify-content: center;
+  min-height: 35vh;
+  max-height: 35vh;
 }
-.Play-card {
+
+.float {
+  display: flex;
+  flex-direction: row;
+  min-width: fill;
+  align-items: center;
+  justify-content: center;
+}
+
+.face-down {
+  position: relative;
+  border: 2px solid purple;
+  background-color: lightyellow;
+  min-width: 20%;
+  min-height: 30vh;
+  max-height: 30vh;
+  margin-right: -15%;
+}
+
+.card-box {
   display: flex;
   flex-direction: column;
-  background-color: pink;
+  min-width: 20%;
+  align-items: center;
+  justify-content: center;
+  min-height: 35vh;
+  max-height: 35vh;
+}
+
+.single-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid pink;
+  background-color: white;
+  z-index: 0;
+  align-items: center;
+  min-width: 20vh;
+  justify-content: center;
+  min-height: 30vh;
+  max-height: 30vh;
+}
+
+.card-suit {
+  padding: 0;
+  margin: 0;
+}
+
+.card-value {
+  padding: 0;
+  margin: 0;
+}
+
+.deck-box {
+  display: flex;
+  flex-direction: column;
+  border-color: lightcoral 1px;
   margin: 1rem;
   min-width: 20%;
   align-items: center;
   justify-content: center;
 }
-.Play-deck {
+
+.deck {
   display: flex;
-  flex-direction: column;
-  background-color: lightcoral;
-  margin: 1rem;
-  min-width: 20%;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.top-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid pink;
+  background-color: white;
+  z-index: 0;
+  align-items: center;
+  min-width: 20vh;
+  justify-content: center;
+  min-height: 30vh;
+  max-height: 30vh;
 }
 
 .button {
   background-color: cornflowerblue;
   height: 3rem;
   border-radius: 7px;
-}
-
-.float-box {
-  display: flex;
-  flex-direction: column;
-  background-color: darksalmon;
-  margin: 1rem;
-  min-width: 40%;
-  align-items: center;
-  justify-content: center;
-}
-
-.single-card {
-  display: flex;
-  flex-direction: column;
-  background-color: pink;
-  margin: 1rem;
-  min-width: 20%;
-  align-items: center;
-  justify-content: center;
-  min-height: 12vh;
-  max-height: 12vh;
-  padding: 0;
 }
 
 /* .App-logo {

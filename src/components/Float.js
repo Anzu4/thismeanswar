@@ -5,12 +5,13 @@ import '../App.css';
 export default function Float({ float }) {
   if (float) {
     return (
-      <div className={'float-box'}>
-        X X
-        <Card card={float[float.length - 1]} />
+      <div className={'float'}>
+        <p className={'face-down'}></p>
+        <p className={'face-down'}></p>
+        <Card card={float[float.length - 1]} className={'single-card'} />
       </div>
     );
   } else {
-    return <p>Float</p>;
+    return <div></div>;
   }
 }
