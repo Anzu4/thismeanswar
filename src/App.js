@@ -1,5 +1,4 @@
-import React, { Component, useState } from 'react';
-import { hot } from 'react-hot-loader';
+import React, { useState } from 'react';
 import './App.css';
 import { Container, Button } from 'react-bootstrap';
 import War from './components/War';
@@ -19,4 +18,4 @@ function App() {
   }
 }
 
-export default hot(module)(App);
+export default App;

@@ -82,107 +82,100 @@ export default function War() {
 
   // evaulates the current player and computer cards. Adds boths cards to respective winner's decks, or if there's a tie, starts the war!
   function determineWin(currPlayerCard, currComputerCard) {
-    switch (start) {
-      // Cards have been played outside of a 'war' senario
-      case 'collect':
-        // Player Wins
-        if (currPlayerCard.Rank > currComputerCard.Rank) {
-          setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
-          setComputerDeck(computerDeck.filter((card) => card !== computerCard));
-          setPlayerDeck((playerDeck) => [...playerDeck, playerCard]);
-          setPlayerDeck((playerDeck) => [...playerDeck, computerCard]);
-          setStart('on');
-          break;
-          // Computer Wins
-        }
-        // Computer Wins
-        else if (currComputerCard.Rank > currPlayerCard.Rank) {
-          setComputerDeck(computerDeck.filter((card) => card !== computerCard));
-          setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
-          setComputerDeck((computerDeck) => [...computerDeck, playerCard]);
-          setComputerDeck((computerDeck) => [...computerDeck, computerCard]);
-          setStart('on');
-          break;
-        }
-        // Tie
-        else if (currComputerCard.Rank === currPlayerCard.Rank) {
-          // add cards to the float
-          setStart('warUp');
-          float();
-          break;
-        }
-      // Cards have been played inside of a 'war' senario
-      //   case 'warUp':
-      //     console.log(currComputerCard, currPlayerCard);
-      //     // Player Wins
-      //     if (currPlayerCard.Rank > currComputerCard.Rank) {
-      //       let tempPlayDeck = [...playerDeck];
-      //       // put current card at back
-      //       tempPlayDeck.push(tempPlayDeck.shift());
-      //       // add player float
-      //       playFloat.forEach((card) => {
-      //         tempPlayDeck.push(card);
-      //       });
-      //       // add computer's card
-      //       tempPlayDeck.push(computerCard);
-      //       // add computer's float
-      //       playFloat.forEach((card) => tempPlayDeck.push(card));
-      //       console.log(tempPlayDeck);
-      //       setPlayerDeck(tempPlayDeck);
-
-      //       let tempCompDeck = [...computerDeck];
-      //       // remove current card and float
-      //       tempCompDeck.splice(0, compFloat.length + 1);
-      //       console.log(tempCompDeck);
-      //       setComputerDeck(tempCompDeck);
-
-      //       // Remove current card from top of Deck
-      //       //setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
-      //       //setComputerDeck(computerDeck.filter((card) => card !== computerCard));
-      //       // add the current cards and each float to the bottom of the player's deck
-      //       // Add Player's current card
-      //       //setPlayerDeck((playerDeck) => [...playerDeck, playerCard]);
-      //       // Add cards from Player's Float
-      //       //playFloat.forEach((card) => {
-      //       // setPlayerDeck((playerDeck) => [...playerDeck, card]);
-      //       // });
-      //       // Add Computer's current card
-      //       // setPlayerDeck((playerDeck) => [...playerDeck, computerCard]);
-      //       // Add Computer's Float
-      //       // compFloat.forEach((card) => {
-      //       //   setComputerDeck((computerDeck) => [...computerDeck, card]);
-      //       // });
-      //       // empty floats
-      //       playFloat = [];
-      //       compFloat = [];
-      //       setPlayerFloat([]);
-      //       setComputerFloat([]);
-      //       setStart('on');
-      //     }
-      //     // Computer Wins
-      //     else if (currComputerCard.Rank > currPlayerCard.Rank) {
-      //       // Remove current card from top of Deck
-      //       setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
-      //       setComputerDeck(computerDeck.filter((card) => card !== computerCard));
-      //       // add the current cards and each float to the bottom of the computer's deck
-      //       setComputerDeck((computerDeck) => [...computerDeck, computerCard]);
-      //       compDeck.forEach((card) => {
-      //         setComputerDeck((computerDeck) => [...computerDeck, card]);
-      //       });
-      //       setComputerDeck((computerDeck) => [...computerDeck, computerCard]);
-      //       playDeck.forEach((card) => {
-      //         setComputerDeck((computerDeck) => [...computerDeck, card]);
-      //       });
-      //       // empty floats
-      //       setPlayerFloat([]);
-      //       setComputerFloat([]);
-      //       setStart('on');
-      //     } else if (currComputerCard.Rank === currPlayerCard.Rank) {
-      //       float();
-      //       setStart('warUp');
-      //       break;
-      //     }
+    // Player Wins
+    if (currPlayerCard.Rank > currComputerCard.Rank) {
+      setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
+      setComputerDeck(computerDeck.filter((card) => card !== computerCard));
+      setPlayerDeck((playerDeck) => [...playerDeck, playerCard]);
+      setPlayerDeck((playerDeck) => [...playerDeck, computerCard]);
+      setStart('on');
+      // Computer Wins
     }
+    // Computer Wins
+    else if (currComputerCard.Rank > currPlayerCard.Rank) {
+      setComputerDeck(computerDeck.filter((card) => card !== computerCard));
+      setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
+      setComputerDeck((computerDeck) => [...computerDeck, playerCard]);
+      setComputerDeck((computerDeck) => [...computerDeck, computerCard]);
+      setStart('on');
+    }
+    // Tie
+    else if (currComputerCard.Rank === currPlayerCard.Rank) {
+      // add cards to the float
+      setStart('warUp');
+      float();
+    }
+    // Cards have been played inside of a 'war' senario
+    //   case 'warUp':
+    //     console.log(currComputerCard, currPlayerCard);
+    //     // Player Wins
+    //     if (currPlayerCard.Rank > currComputerCard.Rank) {
+    //       let tempPlayDeck = [...playerDeck];
+    //       // put current card at back
+    //       tempPlayDeck.push(tempPlayDeck.shift());
+    //       // add player float
+    //       playFloat.forEach((card) => {
+    //         tempPlayDeck.push(card);
+    //       });
+    //       // add computer's card
+    //       tempPlayDeck.push(computerCard);
+    //       // add computer's float
+    //       playFloat.forEach((card) => tempPlayDeck.push(card));
+    //       console.log(tempPlayDeck);
+    //       setPlayerDeck(tempPlayDeck);
+
+    //       let tempCompDeck = [...computerDeck];
+    //       // remove current card and float
+    //       tempCompDeck.splice(0, compFloat.length + 1);
+    //       console.log(tempCompDeck);
+    //       setComputerDeck(tempCompDeck);
+
+    //       // Remove current card from top of Deck
+    //       //setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
+    //       //setComputerDeck(computerDeck.filter((card) => card !== computerCard));
+    //       // add the current cards and each float to the bottom of the player's deck
+    //       // Add Player's current card
+    //       //setPlayerDeck((playerDeck) => [...playerDeck, playerCard]);
+    //       // Add cards from Player's Float
+    //       //playFloat.forEach((card) => {
+    //       // setPlayerDeck((playerDeck) => [...playerDeck, card]);
+    //       // });
+    //       // Add Computer's current card
+    //       // setPlayerDeck((playerDeck) => [...playerDeck, computerCard]);
+    //       // Add Computer's Float
+    //       // compFloat.forEach((card) => {
+    //       //   setComputerDeck((computerDeck) => [...computerDeck, card]);
+    //       // });
+    //       // empty floats
+    //       playFloat = [];
+    //       compFloat = [];
+    //       setPlayerFloat([]);
+    //       setComputerFloat([]);
+    //       setStart('on');
+    //     }
+    //     // Computer Wins
+    //     else if (currComputerCard.Rank > currPlayerCard.Rank) {
+    //       // Remove current card from top of Deck
+    //       setPlayerDeck(playerDeck.filter((card) => card !== playerCard));
+    //       setComputerDeck(computerDeck.filter((card) => card !== computerCard));
+    //       // add the current cards and each float to the bottom of the computer's deck
+    //       setComputerDeck((computerDeck) => [...computerDeck, computerCard]);
+    //       compDeck.forEach((card) => {
+    //         setComputerDeck((computerDeck) => [...computerDeck, card]);
+    //       });
+    //       setComputerDeck((computerDeck) => [...computerDeck, computerCard]);
+    //       playDeck.forEach((card) => {
+    //         setComputerDeck((computerDeck) => [...computerDeck, card]);
+    //       });
+    //       // empty floats
+    //       setPlayerFloat([]);
+    //       setComputerFloat([]);
+    //       setStart('on');
+    //     } else if (currComputerCard.Rank === currPlayerCard.Rank) {
+    //       float();
+    //       setStart('warUp');
+    //       break;
+    //     }
   }
 
   // determines the winner of the float battle
