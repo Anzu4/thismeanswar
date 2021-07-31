@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Container, Col, Row, Button } from 'react-bootstrap';
-import { War, Header, Footer } from './components';
+import { War, Header } from './components';
 
 function App() {
   const [game, setGame] = useState('off');
