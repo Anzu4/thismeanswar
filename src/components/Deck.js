@@ -7,8 +7,7 @@ export default function Deck({ deck }) {
     return (
       <div className={'deck'}>
         <div className={'top-card'}>
-          <h3>Deck:</h3>
-          <div>{deckSize}</div>
+          <h3 className={'deck-text'}>Deck: {deckSize} </h3>
         </div>
       </div>
     );

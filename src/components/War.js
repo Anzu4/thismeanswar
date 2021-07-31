@@ -164,6 +164,7 @@ export default function War() {
     return (
       <Container id={'battleground'}>
         <Header />
+        <Row className={'army-header'}>Your Opponent's Army</Row>
         <Row className={'Opponent'}>
           <Col className={'float-box'}>
             <Float />
@@ -180,6 +181,7 @@ export default function War() {
             Deal!
           </Button>
         </Row>
+        <Row>Your Army</Row>
         <Row className={'Player'}>
           <Col className={'float-box'}>
             <Float />
@@ -196,11 +198,10 @@ export default function War() {
     );
   } else if (start === 'on') {
     if (playerDeck.length > 0 && computerDeck.length > 0) {
-      //let compCard = computerCard;
-      //console.log(computerCard);
       return (
         <Container id={'battleground'}>
           <Header />
+          <Row className={'army-header'}>Your Opponent's Army</Row>
           <Row className={'Opponent'}>
             <Col className={'float-box'}>
               <Float />
@@ -215,6 +216,7 @@ export default function War() {
           <Button onClick={() => setCards(playerDeck, computerDeck)}>
             Play Card
           </Button>
+          <Row className={'army-header'}>Your Army</Row>
           <Row className={'Player'}>
             <Col className={'float-box'}>
               <Float />
@@ -242,6 +244,7 @@ export default function War() {
       return (
         <Container id={'battleground'}>
           <Header />
+          <Row className={'army-header'}>Your Opponent's Army</Row>
           <Row className={'Opponent'}>
             <Col className={'float-box'}>
               <Float />
@@ -256,6 +259,7 @@ export default function War() {
           <Button onClick={() => determineWin(playerCard, computerCard)}>
             Collect
           </Button>
+          <Row className={'army-header'}>Your Army</Row>
           <Row className={'Player'}>
             <Col className={'float-box'}>
               <Float />
@@ -280,6 +284,7 @@ export default function War() {
       return (
         <Container id={'battleground'}>
           <Header />
+          <Row className={'army-header'}>Your Opponent's Army</Row>
           <Row className={'Opponent'}>
             <Col className={'float-box'}>
               <Float float={computerFloat} />
@@ -294,6 +299,7 @@ export default function War() {
           <Button onClick={() => battle(playerFloat, computerFloat)}>
             Collect
           </Button>
+          <Row className={'army-header'}>Your Opponent's Army</Row>
           <Row className={'Player'}>
             <Col className={'float-box'}>
               <Float float={playerFloat} />
