@@ -129,6 +129,7 @@ export default function War() {
       // Update State
       setPlayerDeck(tempPlayDeck);
       setComputerDeck(tempCompDeck);
+      emptyFloats();
     }
     // Computer wins
     else if (compBattle.Rank > playBattle.Rank) {
@@ -145,12 +146,15 @@ export default function War() {
       // Update State
       setComputerDeck(tempCompDeck);
       setPlayerDeck(tempPlayDeck);
+      emptyFloats();
     }
     // Tie
     else if (playBattle.Rank === compBattle.Rank) {
       float();
     }
+  }
 
+  function emptyFloats() {
     // Empty floats
     playFloat = [];
     compFloat = [];
@@ -210,7 +214,7 @@ export default function War() {
               <Card />
             </Col>
             <Col className={'deck-box'}>
-              <Deck deck={computerDeck} />
+              <Deck deck={computerDeck} player={'red'} />
             </Col>
           </Row>
           <Button onClick={() => setCards(playerDeck, computerDeck)}>
@@ -225,7 +229,7 @@ export default function War() {
               <Card />
             </Col>
             <Col className={'deck-box'}>
-              <Deck deck={playerDeck} />
+              <Deck deck={playerDeck} player={'blue'} />
             </Col>
           </Row>
           <Footer />
@@ -253,7 +257,7 @@ export default function War() {
               <Card card={computerCard} />
             </Col>
             <Col className={'deck-box'}>
-              <Deck deck={computerDeck} />
+              <Deck deck={computerDeck} player={'red'} />
             </Col>
           </Row>
           <Button onClick={() => determineWin(playerCard, computerCard)}>
@@ -268,7 +272,7 @@ export default function War() {
               <Card card={playerCard} />
             </Col>
             <Col className={'deck-box'}>
-              <Deck deck={playerDeck} />
+              <Deck deck={playerDeck} player={'blue'} />
             </Col>
           </Row>
           <Footer />
@@ -287,28 +291,28 @@ export default function War() {
           <Row className={'army-header'}>Your Opponent's Army</Row>
           <Row className={'Opponent'}>
             <Col className={'float-box'}>
-              <Float float={computerFloat} />
+              <Float float={computerFloat} player={'red'} />
             </Col>
             <Col className={'card-box'}>
               <Card card={computerCard} />
             </Col>
             <Col className={'deck-box'}>
-              <Deck deck={computerDeck} />
+              <Deck deck={computerDeck} player={'red'} />
             </Col>
           </Row>
           <Button onClick={() => battle(playerFloat, computerFloat)}>
             Collect
           </Button>
-          <Row className={'army-header'}>Your Opponent's Army</Row>
+          <Row className={'army-header'}>Your Army</Row>
           <Row className={'Player'}>
             <Col className={'float-box'}>
-              <Float float={playerFloat} />
+              <Float float={playerFloat} player={'blue'} />
             </Col>
             <Col className={'card-box'}>
               <Card card={playerCard} />
             </Col>
             <Col className={'deck-box'}>
-              <Deck deck={playerDeck} />
+              <Deck deck={playerDeck} player={'blue'} />
             </Col>
           </Row>
           <Footer />

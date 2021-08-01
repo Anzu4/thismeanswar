@@ -72,8 +72,9 @@
   min-height: 100vh;
 }
 
-.army-header{
-  
+.army-header {
+  font-size: 150%;
+  font-weight: bold;
 }
 
 .Opponent {
@@ -120,13 +121,23 @@
   justify-content: center;
 }
 
-.face-down {
+.face-down-red {
   position: relative;
   border: 2px solid purple;
   border-radius: 7px;
   background-image: url('./images/card-red.png');
   background-size: cover;
-  background-position: center;
+  min-width: 20%;
+  min-height: 30vh;
+  max-height: 30vh;
+  margin-right: -15%;
+}
+.face-down-blue {
+  position: relative;
+  border: 2px solid purple;
+  border-radius: 7px;
+  background-image: url('./images/card-blue.png');
+  background-size: cover;
   min-width: 20%;
   min-height: 30vh;
   max-height: 30vh;
@@ -200,11 +211,26 @@
   justify-content: center;
 }
 
-.top-card {
+.top-card-red {
   display: flex;
   flex-direction: column;
   border: 2px solid black;
   background-image: url('./images/card-red.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 7px;
+  align-items: center;
+  min-width: 20vh;
+  justify-content: center;
+  min-height: 30vh;
+  max-height: 30vh;
+}
+
+.top-card-blue {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  background-image: url('./images/card-blue.png');
   background-size: cover;
   background-position: center;
   border-radius: 7px;
