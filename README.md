@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# This Means WAR
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Front-End rendition of the classic card game 'WAR'.
 
-## Available Scripts
+## Rules and Gameplay
 
-In the project directory, you can run:
+- 52 cards are shuffled and dealt between 2 players.
+- Each player turns the top card of their deck face up.
+- High card wins. Winner takes both cards and places them face down on the bottom of their deck.
+- If cards are a tie, a battle is initiated.
+- Each player places the next 2 cards of their deck face down, and a third card face up. High card wins. Winner takes all cards in play and adds them to the bottom of their deck.
+- Game is over when one player has all 52 cards in thier deck.
 
-### `yarn start`
+## Deployed Site
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Live site can be found [here](https://thismeanswar.netlify.app/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![This Means WAR!](./src/images/This-means-war-screenshot.png ?raw=true "This Means WAR!")
 
-### `yarn test`
+## Run Locally
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Fork and Clone this repository.
+- npm install
+- npm start will run server on [your machine](http://localhost:3000/)
 
-### `yarn build`
+## Development Notes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Site developed with create-react-app, javascript, html and css.
+- State management achieved with react-hooks.
+- Card backs designed by Desiree Nelson using[Canva](https://Canva.com)
+- Splash Page image: Photo by [Jaime Spaniol]("https://unsplash.com/@jaimespaniol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash](https://unsplash.com/s/photos/battle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+- Opponent and Player background images by [Birmingham Museums Trust](https://unsplash.com/@birminghammuseumstrust?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/battle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Developed By
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Developed as a Solo Project by Desiree Nelson for a [Mintbean Hackathon](https://mintbean.io/meets?sort=upcoming)
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Github](https://github.com/Anzu4)
+[LinkedIn](https://www.linkedin.com/in/desiree-nelson/)
+[Portfolio](https://www.desireenelson.dev/)

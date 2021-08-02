@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import deck from '../cards';
 import '../App.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Header, Footer, Card, Float, Deck } from './index';
+import { Header, Footer, Card, Float, Deck, Win, Lose } from './index';
 
 export default function War() {
   // Define States
@@ -63,17 +63,17 @@ export default function War() {
   // temp float arrays outside of float function because they may be added to if a battle goes beyond 1 round
   let playFloat = [];
   let compFloat = [];
+  let nextCard = 1;
+  let floatEnd = nextCard + 2;
 
   // Add next 3 cards to each player's float.
   function float() {
-    let nextCard = 1;
-    let floatEnd = nextCard + 2;
     // Add next 3 cards to the floats
     for (let i = nextCard; i <= floatEnd; i++) {
       playFloat.push(playerDeck[i]);
       compFloat.push(computerDeck[i]);
-      nextCard += 3;
     }
+    nextCard += 3;
     playFloat.forEach((card) => {
       setPlayerFloat((playerFloat) => [...playerFloat, card]);
     });
@@ -110,9 +110,9 @@ export default function War() {
   }
 
   // determines the winner of the float battle
-  function battle(playerFloat, computerFloat) {
-    let playBattle = playerFloat[playerFloat.length - 1];
-    let compBattle = computerFloat[computerFloat.length - 1];
+  function battle(currPlayerFloat, currComputerFloat) {
+    let playBattle = currPlayerFloat[playerFloat.length - 1];
+    let compBattle = currComputerFloat[computerFloat.length - 1];
 
     // Player wins
     if (playBattle.Rank > compBattle.Rank) {
@@ -150,7 +150,9 @@ export default function War() {
     }
     // Tie
     else if (playBattle.Rank === compBattle.Rank) {
+      alert('Tie');
       float();
+      battle(playFloat, compFloat);
     }
   }
 
@@ -158,6 +160,7 @@ export default function War() {
     // Empty floats
     playFloat = [];
     compFloat = [];
+    nextCard = 1;
     setPlayerFloat([]);
     setComputerFloat([]);
     setStart('on');
@@ -185,7 +188,7 @@ export default function War() {
             Deal!
           </Button>
         </Row>
-        <Row>Your Army</Row>
+        <Row className={'army-header'}>Your Army</Row>
         <Row className={'Player'}>
           <Col className={'float-box'}>
             <Float />
@@ -236,15 +239,12 @@ export default function War() {
         </Container>
       );
     } else if (playerDeck.length === 0) {
-      console.log('You lose!');
+      return <Lose />;
     } else if (computerDeck.length === 0) {
-      console.log('You WIN!');
+      return <Win />;
     }
   } else if (start === 'collect') {
     if (playerDeck.length > 0 && computerDeck.length > 0) {
-      // let playCard = playerCard.Rank;
-      // let compCard = computerCard.Rank;
-
       return (
         <Container id={'battleground'}>
           <Header />
@@ -279,9 +279,9 @@ export default function War() {
         </Container>
       );
     } else if (playerDeck.length === 0) {
-      console.log('You lose!');
+      return <Lose />;
     } else if (computerDeck.length === 0) {
-      console.log('You WIN!');
+      return <Win />;
     }
   } else if (start === 'warUp') {
     if (playerDeck.length > 0 && computerDeck.length > 0) {
@@ -319,9 +319,9 @@ export default function War() {
         </Container>
       );
     } else if (playerDeck.length === 0) {
-      console.log('You lose!');
+      return <Lose />;
     } else if (computerDeck.length === 0) {
-      console.log('You WIN!');
+      return <Win />;
     }
   }
 }

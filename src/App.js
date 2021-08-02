@@ -10,7 +10,7 @@ function App() {
     return (
       <div>
         <Container className={'App'} fluid>
-          <Row id={'site_header'}>
+          <Row id={'splash_header'}>
             <Header />
           </Row>
           <Row id={'splash-main'}>
