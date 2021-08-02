@@ -103,6 +103,22 @@
   margin-left: 10%;
 }
 
+.war-button {
+  background-color: white;
+  height: 2rem;
+  width: 5rem;
+  font-weight: bold;
+  color: white;
+  background: rgb(235, 29, 13);
+  background: linear-gradient(
+    90deg,
+    rgba(235, 29, 13, 1) 0%,
+    rgba(36, 9, 121, 1) 48%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 7px;
+}
+
 .float-box {
   display: flex;
   flex-direction: row;

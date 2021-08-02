@@ -183,7 +183,11 @@ export default function War() {
           </Col>
         </Row>
         <Row className={'Action'}>
-          <Button variant='primary' onClick={() => shuffle(deck)}>
+          <Button
+            variant='primary'
+            onClick={() => shuffle(deck)}
+            className={'war-button'}
+          >
             Deal!
           </Button>
         </Row>
@@ -219,7 +223,10 @@ export default function War() {
               <Deck deck={computerDeck} player={'red'} />
             </Col>
           </Row>
-          <Button onClick={() => setCards(playerDeck, computerDeck)}>
+          <Button
+            onClick={() => setCards(playerDeck, computerDeck)}
+            className={'war-button'}
+          >
             Play Card
           </Button>
           <Row className={'army-header'}>Your Army</Row>
@@ -259,8 +266,11 @@ export default function War() {
               <Deck deck={computerDeck} player={'red'} />
             </Col>
           </Row>
-          <Button onClick={() => determineWin(playerCard, computerCard)}>
-            Collect
+          <Button
+            onClick={() => determineWin(playerCard, computerCard)}
+            className={'war-button'}
+          >
+            Collect Spoils
           </Button>
           <Row className={'army-header'}>Your Army</Row>
           <Row className={'Player'}>
@@ -299,7 +309,10 @@ export default function War() {
               <Deck deck={computerDeck} player={'red'} />
             </Col>
           </Row>
-          <Button onClick={() => battle(playerFloat, computerFloat)}>
+          <Button
+            onClick={() => battle(playerFloat, computerFloat)}
+            className={'war-button'}
+          >
             Collect
           </Button>
           <Row className={'army-header'}>Your Army</Row>
