@@ -313,7 +313,7 @@ export default function War() {
             onClick={() => battle(playerFloat, computerFloat)}
             className={'war-button'}
           >
-            Collect
+            Collect Spoils
           </Button>
           <Row className={'army-header'}>Your Army</Row>
           <Row className={'Player'}>

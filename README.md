@@ -15,7 +15,7 @@ A Front-End rendition of the classic card game 'WAR'.
 
 Live site can be found [here](https://thismeanswar.netlify.app/)
 
-![This Means WAR!](./src/images/This-means-war-screenshot.png ?raw=true "This Means WAR!")
+[![This Means WAR!](https://i.postimg.cc/DZvS8N50/Screen-Shot-2021-08-02-at-9-45-29-AM.png)](https://postimg.cc/rdHVHQB2)
 
 ## Run Locally
 
