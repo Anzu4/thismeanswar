@@ -306,42 +306,118 @@ export default function War() {
     }
   } else if (start === 'collect') {
     if (playerDeck.length > 0 && computerDeck.length > 0) {
-      return (
-        <Container id={'battleground'}>
-          <Header />
-          <Row className={'army-header'}>Your Opponent's Army</Row>
-          <Row className={'Opponent'}>
-            <Col className={'float-box'}>
-              <Float />
-            </Col>
-            <Col className={'card-box'}>
-              <Card card={computerCard} />
-            </Col>
-            <Col className={'deck-box'}>
-              <Deck deck={computerDeck} player={'red'} />
-            </Col>
-          </Row>
-          <Button
-            onClick={() => determineWin(playerCard, computerCard)}
-            className={'war-button'}
-          >
-            Collect Spoils
-          </Button>
-          <Row className={'army-header'}>Your Army</Row>
-          <Row className={'Player'}>
-            <Col className={'float-box'}>
-              <Float />
-            </Col>
-            <Col className={'card-box'}>
-              <Card card={playerCard} />
-            </Col>
-            <Col className={'deck-box'}>
-              <Deck deck={playerDeck} player={'blue'} />
-            </Col>
-          </Row>
-          <Footer />
-        </Container>
-      );
+      if (playerCard.Rank > computerCard.Rank) {
+        return (
+          <Container id={'battleground'}>
+            <Header />
+            <Row className={'army-header'}>Your Opponent's Army</Row>
+            <Row className={'Opponent'}>
+              <Col className={'float-box'}>
+                <Float />
+              </Col>
+              <Col className={'card-box'}>
+                <Card card={computerCard} />
+              </Col>
+              <Col className={'deck-box'}>
+                <Deck deck={computerDeck} player={'red'} />
+              </Col>
+            </Row>
+            <Button
+              onClick={() => determineWin(playerCard, computerCard)}
+              className={'war-button'}
+            >
+              Collect Spoils
+            </Button>
+            <Row className={'army-header'}>Your Army</Row>
+            <Row className={'Player'}>
+              <Col className={'float-box'}>
+                <Float />
+              </Col>
+              <Col className={'card-box'}>
+                <Card card={playerCard} />
+              </Col>
+              <Col className={'deck-box'}>
+                <Deck deck={playerDeck} player={'blue'} />
+              </Col>
+            </Row>
+            <Footer />
+          </Container>
+        );
+      } else if (computerCard.Rank > playerCard.Rank) {
+        return (
+          <Container id={'battleground'}>
+            <Header />
+            <Row className={'army-header'}>Your Opponent's Army</Row>
+            <Row className={'Opponent'}>
+              <Col className={'float-box'}>
+                <Float />
+              </Col>
+              <Col className={'card-box'}>
+                <Card card={computerCard} />
+              </Col>
+              <Col className={'deck-box'}>
+                <Deck deck={computerDeck} player={'red'} />
+              </Col>
+            </Row>
+            <Button
+              onClick={() => determineWin(playerCard, computerCard)}
+              className={'war-button'}
+            >
+              REREAT!
+            </Button>
+            <Row className={'army-header'}>Your Army</Row>
+            <Row className={'Player'}>
+              <Col className={'float-box'}>
+                <Float />
+              </Col>
+              <Col className={'card-box'}>
+                <Card card={playerCard} />
+              </Col>
+              <Col className={'deck-box'}>
+                <Deck deck={playerDeck} player={'blue'} />
+              </Col>
+            </Row>
+            <Footer />
+          </Container>
+        );
+      } else if (computerCard.Rank === playerCard.Rank) {
+        return (
+          <Container id={'battleground'}>
+            <Header />
+            <Row className={'army-header'}>Your Opponent's Army</Row>
+            <Row className={'Opponent'}>
+              <Col className={'float-box'}>
+                <Float />
+              </Col>
+              <Col className={'card-box'}>
+                <Card card={computerCard} />
+              </Col>
+              <Col className={'deck-box'}>
+                <Deck deck={computerDeck} player={'red'} />
+              </Col>
+            </Row>
+            <Button
+              onClick={() => determineWin(playerCard, computerCard)}
+              className={'war-button'}
+            >
+              WAR!
+            </Button>
+            <Row className={'army-header'}>Your Army</Row>
+            <Row className={'Player'}>
+              <Col className={'float-box'}>
+                <Float />
+              </Col>
+              <Col className={'card-box'}>
+                <Card card={playerCard} />
+              </Col>
+              <Col className={'deck-box'}>
+                <Deck deck={playerDeck} player={'blue'} />
+              </Col>
+            </Row>
+            <Footer />
+          </Container>
+        );
+      }
     } else if (playerDeck.length === 0) {
       return <Lose />;
     } else if (computerDeck.length === 0) {
@@ -368,7 +444,7 @@ export default function War() {
             onClick={() => battle(playerFloat, computerFloat)}
             className={'war-button'}
           >
-            Collect Spoils
+            Winner Take All
           </Button>
           <Row className={'army-header'}>Your Army</Row>
           <Row className={'Player'}>
