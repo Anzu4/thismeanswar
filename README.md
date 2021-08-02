@@ -27,14 +27,14 @@ Live site can be found [here](https://thismeanswar.netlify.app/)
 
 - Site developed with create-react-app, javascript, html and css.
 - State management achieved with react-hooks.
-- Card backs designed by Desiree Nelson using[Canva](https://Canva.com)
-- Splash Page image: Photo by [Jaime Spaniol]("https://unsplash.com/@jaimespaniol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash](https://unsplash.com/s/photos/battle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+- Card backs designed by Desiree Nelson using [Canva](https://Canva.com)
+- Splash Page image: Photo by [Jaime Spaniol](https://unsplash.com/@jaimespaniol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/battle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 - Opponent and Player background images by [Birmingham Museums Trust](https://unsplash.com/@birminghammuseumstrust?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/battle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 ## Developed By
 
 Developed as a Solo Project by Desiree Nelson for a [Mintbean Hackathon](https://mintbean.io/meets?sort=upcoming)
 
-[Github](https://github.com/Anzu4)
-[LinkedIn](https://www.linkedin.com/in/desiree-nelson/)
-[Portfolio](https://www.desireenelson.dev/)
+- [Github](https://github.com/Anzu4)
+- [LinkedIn](https://www.linkedin.com/in/desiree-nelson/)
+- [Portfolio](https://www.desireenelson.dev/)
