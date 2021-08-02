@@ -150,7 +150,7 @@ export default function War() {
     }
     // Tie
     else if (playBattle.Rank === compBattle.Rank) {
-      alert('Tie');
+      () => alert('Tie');
       float();
       battle(playFloat, compFloat);
     }
