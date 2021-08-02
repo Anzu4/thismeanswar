@@ -34,7 +34,7 @@ export default function Card({ card }) {
       return (
         <div className={'single-card'}>
           <p className={'card-suit-black'}>
-            <i class='fas fa-horse-head'></i>
+            <i className='fas fa-horse-head'></i>
           </p>
           <p className={'card-value-black'}>{card.Rank}</p>
         </div>

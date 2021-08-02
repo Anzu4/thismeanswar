@@ -59,29 +59,6 @@ export default function War() {
     setStart('collect');
   }
 
-  // Start 'warUp'
-  // temp float arrays outside of float function because they may be added to if a battle goes beyond 1 round
-  let playFloat = [];
-  let compFloat = [];
-  let nextCard = 1;
-  let floatEnd = nextCard + 2;
-
-  // Add next 3 cards to each player's float.
-  function float() {
-    // Add next 3 cards to the floats
-    for (let i = nextCard; i <= floatEnd; i++) {
-      playFloat.push(playerDeck[i]);
-      compFloat.push(computerDeck[i]);
-    }
-    nextCard += 3;
-    playFloat.forEach((card) => {
-      setPlayerFloat((playerFloat) => [...playerFloat, card]);
-    });
-    compFloat.forEach((card) => {
-      setComputerFloat((computerFloat) => [...computerFloat, card]);
-    });
-  }
-
   // evaulates the current player and computer cards. Adds boths cards to respective winner's decks, or if there's a tie, starts the war!
   function determineWin(currPlayerCard, currComputerCard) {
     // Player Wins
@@ -109,11 +86,38 @@ export default function War() {
     }
   }
 
-  // determines the winner of the float battle
-  function battle(currPlayerFloat, currComputerFloat) {
-    let playBattle = currPlayerFloat[playerFloat.length - 1];
-    let compBattle = currComputerFloat[computerFloat.length - 1];
+  // Start 'warUp'
+  // temp float arrays outside of float function because they may be added to if a battle goes beyond 1 round
+  let playFloat = [];
+  let compFloat = [];
+  let nextCard = 1;
+  let floatEnd = nextCard + 2;
 
+  // Add next 3 cards to each player's float.
+  function float() {
+    // Add next 3 cards to the floats
+    if (playerDeck.length >= 3 && computerDeck.length >= 3) {
+      for (let i = nextCard; i <= floatEnd; i++) {
+        playFloat.push(playerDeck[i]);
+        compFloat.push(computerDeck[i]);
+      }
+      playFloat.forEach((card) => {
+        setPlayerFloat((playerFloat) => [...playerFloat, card]);
+      });
+      compFloat.forEach((card) => {
+        setComputerFloat((computerFloat) => [...computerFloat, card]);
+      });
+    } else if (playerDeck.length < 3) {
+      setPlayerDeck([]);
+    } else if (computerDeck.length < 3) {
+      setComputerDeck([]);
+    }
+  }
+
+  // determines the winner of the float battle
+  function battle(playFloat, compFloat) {
+    let playBattle = playFloat[playFloat.length - 1];
+    let compBattle = compFloat[compFloat.length - 1];
     // Player wins
     if (playBattle.Rank > compBattle.Rank) {
       let tempPlayDeck = [...playerDeck];
@@ -150,11 +154,62 @@ export default function War() {
     }
     // Tie
     else if (playBattle.Rank === compBattle.Rank) {
-      float();
-      battle(playFloat, compFloat);
+      nextCard += 3;
+      floatEnd = nextCard + 3;
+      if (
+        playerDeck.length >= playFloat.length &&
+        computerDeck.length >= compFloat.length
+      ) {
+        for (let i = nextCard; i < floatEnd; i++) {
+          playFloat.push(playerDeck[i]);
+          compFloat.push(computerDeck[i]);
+        }
+        playBattle = playFloat[playFloat.length - 1];
+        compBattle = compFloat[compFloat.length - 1];
+      } else if (playerDeck.length < playFloat.length) {
+        setPlayerDeck([]);
+      } else if (computerDeck.length < compFloat.length) {
+        setComputerDeck([]);
+      }
+
+      // Player Wins
+      if (playBattle.Rank > compBattle.Rank) {
+        let tempPlayDeck = [...playerDeck];
+        let tempCompDeck = [...computerDeck];
+        // Add player's card and float to bottom of the deck
+        for (let i = 0; i < playerFloat.length + 1; i++) {
+          tempPlayDeck.push(tempPlayDeck.shift());
+        }
+        // Add computer's card and float to bottom of the deck
+        for (let j = 0; j < computerFloat.length + 1; j++) {
+          tempPlayDeck.push(tempCompDeck.shift());
+        }
+        // Update State
+        setPlayerDeck(tempPlayDeck);
+        setComputerDeck(tempCompDeck);
+        emptyFloats();
+      }
+      // Computer wins
+      else if (compBattle.Rank > playBattle.Rank) {
+        let tempCompDeck = [...computerDeck];
+        let tempPlayDeck = [...playerDeck];
+        // Add computer's card and float to bottom of the deck
+        for (let i = 0; i < computerFloat.length + 1; i++) {
+          tempCompDeck.push(tempCompDeck.shift());
+        }
+        // Add player's card and float to bottom of the deck
+        for (let j = 0; j < playerFloat.length + 1; j++) {
+          tempCompDeck.push(tempPlayDeck.shift());
+        }
+        // Update State
+        setComputerDeck(tempCompDeck);
+        setPlayerDeck(tempPlayDeck);
+        emptyFloats();
+      }
     }
   }
 
+  // Resets floats and nextCard variables when battle is won
   function emptyFloats() {
     // Empty floats
     playFloat = [];
